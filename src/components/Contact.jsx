@@ -8,7 +8,7 @@ import { IoLogoLinkedin, IoLogoTwitter } from 'react-icons/io5';
 import { IoMdMail } from "react-icons/io";
 import { FaPhone } from "react-icons/fa6";
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/contact';
+const API_URL = 'https://portfolio-4-0yew.onrender.com/api/contact';
 
 export default function Contact() {
   const ref = useRef(null);
