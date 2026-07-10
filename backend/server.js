@@ -12,7 +12,12 @@ const FRONTEND_URL = rawFrontendUrl.replace(/\/+$/, '');
 
 // CORS Configuration
 const corsOptions = {
-  origin: FRONTEND_URL,
+  origin: (origin, callback) => {
+    if (!origin || origin === FRONTEND_URL) {
+      return callback(null, true);
+    }
+    return callback(new Error(`Origin ${origin} not allowed by CORS`));
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
